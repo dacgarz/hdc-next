@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /adminposting123
+
+Sitemap: https://app.honeyfootco.com/sitemap.xml

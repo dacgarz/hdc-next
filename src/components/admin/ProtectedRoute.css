@@ -1,0 +1,90 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1D3251 0%, #2a4a6f 100%);
+}
+
+.login-box {
+  background: white;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-box h2 {
+  margin: 0 0 2rem 0;
+  text-align: center;
+  color: #1D3251;
+}
+
+.password-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: #00D1FF;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  background: #00D1FF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #00b8e6;
+}
+
+.error-message {
+  color: #d32f2f;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.admin-header {
+  background: #1D3251;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-button {
+  padding: 0.5rem 1.5rem;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.logout-button:hover {
+  background: #b71c1c;
+}
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #666;
+}
