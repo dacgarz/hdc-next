@@ -41,9 +41,9 @@ export default function Header({ onOpenModal }) {
 
         <div className={`nav-menu-wrapper ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="nav-menu">
-            <li><Link href="/#home" onClick={closeMobileMenu}>Who We Are</Link></li>
+            <li><Link href="/#home" onClick={closeMobileMenu}>WHO WE ARE</Link></li>
             <li><Link href="/#services" onClick={closeMobileMenu}>WHAT WE OFFER</Link></li>
-            <li><Link href="/blog" onClick={closeMobileMenu}>HOW TO WEB</Link></li>
+            <li style={{ display: 'none' }}><Link href="/blog" onClick={closeMobileMenu}>HOW TO WEB</Link></li>
           </ul>
           <button
             className="nav-cta"
