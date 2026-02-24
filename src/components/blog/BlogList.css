@@ -19,6 +19,7 @@
 .blog-content {
   padding: 4rem 2rem;
   min-height: 50vh;
+  background-color: #faebd7;
 }
 
 .tag-filter {

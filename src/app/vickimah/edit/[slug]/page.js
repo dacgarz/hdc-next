@@ -4,6 +4,7 @@ export const metadata = {
   title: 'Edit Post - Admin',
 }
 
-export default function EditPostPage({ params }) {
-  return <PostEditorClient slug={params.slug} />
+export default async function EditPostPage({ params }) {
+  const { slug } = await params
+  return <PostEditorClient slug={slug} />
 }
