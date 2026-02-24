@@ -51,7 +51,7 @@
 }
 
 .post-date {
-  color: #666;
+  color: #30c7b5;
 }
 
 .post-tag {
@@ -72,13 +72,13 @@
 }
 
 .post-card-excerpt {
-  color: #666;
+  color: #676767;
   line-height: 1.6;
   margin: 0 0 1rem 0;
 }
 
 .read-more {
-  color: #00D1FF;
+  color: #30c7b5;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
