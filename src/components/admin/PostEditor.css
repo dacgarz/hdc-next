@@ -18,6 +18,10 @@
   color: #1D3251;
 }
 
+.preview-content {
+  color: #676767;
+}
+
 .message {
   padding: 1rem;
   border-radius: 5px;

@@ -3,25 +3,29 @@
 }
 
 .post-header {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 .post-hero-image {
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  background: #f0f0f0;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    background: #1d3251;
+    padding-top: 5rem;
 }
 
 .post-hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    background: #1d3251;
 }
 
 .post-header-content {
-  padding: 3rem 2rem 0;
+  padding: 3rem 2rem;
   text-align: center;
+  background: #f0f6fa;
+  margin-top: 1rem;
 }
 
 .post-meta {
@@ -34,7 +38,7 @@
 }
 
 .post-meta time {
-  color: #ffffff;
+  color: #30c7b5;
   font-weight: 500;
 }
 
@@ -56,13 +60,14 @@
 .post-header-content h1 {
   font-size: 3rem;
   line-height: 1.2;
-  color: #30c7b5;
+  color: #1d3251;
   margin: 0;
   text-align: center;
 }
 
 .post-content {
   padding: 0 2rem 4rem;
+  background: #f0f6fa;
 }
 
 .post-body {
@@ -70,7 +75,7 @@
   margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #fff;
+  color: #676767;
 }
 
 .post-body h1,
@@ -80,7 +85,7 @@
 .post-body h5,
 .post-body h6 {
   margin: 2rem 0 1rem;
-  color: #30c7b5;
+  color: #1d3251;
   line-height: 1.3;
 }
 
