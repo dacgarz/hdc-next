@@ -19,7 +19,7 @@
 .blog-content {
   padding: 4rem 2rem;
   min-height: 50vh;
-  background-color: #faebd7;
+  background-color: #f0f6fa;
 }
 
 .tag-filter {
@@ -39,7 +39,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #666;
+  color: #676767;
 }
 
 .filter-tag:hover {

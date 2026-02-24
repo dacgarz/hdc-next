@@ -9,12 +9,12 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-top">
-          <Image src="/HDC-Logo.webp" alt="Honeyfoot Digital Co." className="footer-logo" width={120} height={50} />
+          <Image src="/HDC-Logo.webp" alt="Honeyfoot Digital Co." className="footer-logo" width={240} height={100} quality={100} />
 
           <nav className="footer-nav">
-            <Link href="/#home">Why Work With Us</Link>
+            <Link href="/">Who We Are</Link>
             <Link href="/#services">What We Offer</Link>
-            <Link href="/#contact">How To Reach Us</Link>
+            <Link href="/blog">How To Web</Link>
           </nav>
 
           <div className="footer-contact">

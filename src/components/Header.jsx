@@ -25,7 +25,7 @@ export default function Header({ onOpenModal }) {
       <div className="nav-container">
         <div className="logo">
           <Link href="/">
-            <Image src="/HDC-Logo.webp" alt="Honeyfoot Digital Co." className="logo-img" width={120} height={50} />
+            <Image src="/HDC-Logo.webp" alt="Honeyfoot Digital Co." className="logo-img" width={240} height={100} quality={100} />
           </Link>
         </div>
 
@@ -41,7 +41,7 @@ export default function Header({ onOpenModal }) {
 
         <div className={`nav-menu-wrapper ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="nav-menu">
-            <li><Link href="/#home" onClick={closeMobileMenu}>WHO WE ARE</Link></li>
+            <li><Link href="/" onClick={closeMobileMenu}>WHO WE ARE</Link></li>
             <li><Link href="/#services" onClick={closeMobileMenu}>WHAT WE OFFER</Link></li>
             <li><Link href="/blog" onClick={closeMobileMenu}>HOW TO WEB</Link></li>
           </ul>
