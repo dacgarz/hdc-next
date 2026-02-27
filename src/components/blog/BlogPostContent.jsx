@@ -16,6 +16,10 @@ function formatDate(dateString) {
   })
 }
 
+function processContent(html) {
+  return html.replace(/<a\s+href="http/g, '<a target="_blank" rel="noopener noreferrer" href="http')
+}
+
 export default function BlogPostContent({ post }) {
   const router = useRouter()
   const [modalOpen, setModalOpen] = useState(false)
@@ -78,7 +82,7 @@ export default function BlogPostContent({ post }) {
         </div>
 
         <div className="post-content container">
-          <div className="post-body" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="post-body" dangerouslySetInnerHTML={{ __html: processContent(post.content) }} />
         </div>
 
         {post.tags.length > 0 && (
