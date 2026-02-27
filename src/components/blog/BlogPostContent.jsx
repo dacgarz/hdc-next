@@ -98,7 +98,7 @@ export default function BlogPostContent({ post }) {
         <section className="post-cta">
           <div className="container">
             <h2>Let's Talk About Your Website</h2>
-            <p>Whether you're starting fresh or looking to improve what you have, we're happy to walk you through your options. <br>No commitment needed.</p>
+            <p>Whether you're starting fresh or leveling up what you have, we'd love to hear about your business and what you're looking to build.</p>
             <a href="tel:3057070889" className="contact-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
