@@ -15,9 +15,16 @@ export default function ProtectedRoute({ children }) {
     setIsLoading(false)
   }, [])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (password === 'honeyfoot2025') {
+  const handleSubmit = async (e) => {
+  e.preventDefault()
+  try {
+    const res = await fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    })
+
+    if (res.ok) {
       sessionStorage.setItem('adminAuth', 'true')
       setIsAuthenticated(true)
       setError('')
@@ -25,7 +32,11 @@ export default function ProtectedRoute({ children }) {
       setError('Incorrect password')
       setPassword('')
     }
+  } catch {
+    setError('Something went wrong. Try again.')
+    setPassword('')
   }
+}
 
   const handleLogout = () => {
     sessionStorage.removeItem('adminAuth')

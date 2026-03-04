@@ -77,7 +77,7 @@ function PostEditorInner({ slug }) {
   })
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
-
+  const [imageUploading, setImageUploading] = useState(false)
   useEffect(() => {
     if (isEditing) loadPost()
   }, [slug])
@@ -112,7 +112,27 @@ function PostEditorInner({ slug }) {
   const handleContentChange = (value) => {
     setFormData((prev) => ({ ...prev, content: value }))
   }
+  
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0]
+    if (!file) return
 
+    setImageUploading(true)
+    try {
+      const res = await fetch(`/api/uploadImage?filename=${file.name}`, {
+        method: 'POST',
+        body: file,
+      })
+      const data = await res.json()
+      if (data.url) {
+        setFormData((prev) => ({ ...prev, featureImage: data.url }))
+      }
+    } catch {
+      setMessage('Image upload failed. You can still paste a URL manually.')
+    } finally {
+      setImageUploading(false)
+    }
+  }
   const generateSlug = (title) =>
     title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 
@@ -174,10 +194,41 @@ function PostEditorInner({ slug }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="featureImage">Feature Image URL *</label>
-            <input type="url" id="featureImage" name="featureImage" value={formData.featureImage} onChange={handleChange} required placeholder="https://example.com/image.jpg" />
-            {formData.featureImage && (
-              <div className="image-preview"><img src={formData.featureImage} alt="Preview" /></div>
+            <label htmlFor="featureImage">Feature Image</label>
+
+            {/* Upload — first priority */}
+            <div className="image-upload-area">
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                onChange={handleImageUpload}
+                disabled={imageUploading}
+              />
+              <label htmlFor="imageUpload" className="upload-label">
+                {imageUploading ? 'Uploading...' : '↑ Upload image'}
+              </label>
+            </div>
+
+            {/* URL fallback */}
+            <div className="image-url-fallback">
+              <span className="or-divider">or paste an external URL</span>
+              <input
+                type="url"
+                id="featureImage"
+                name="featureImage"
+                value={formData.featureImage}
+                onChange={handleChange}
+                placeholder="https://example.com/image.jpg"
+              />
+            </div>
+
+            {/* Preview — shows for both upload and URL */}
+            {formData.featureImage && !imageUploading && (
+              <div className="image-preview">
+                <img src={formData.featureImage} alt="Preview" />
+                <p className="image-url-note">{formData.featureImage}</p>
+              </div>
             )}
           </div>
 
