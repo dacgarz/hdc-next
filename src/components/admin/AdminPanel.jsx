@@ -137,7 +137,7 @@ function AdminPanelInner() {
         )}
 
         <div className="admin-footer">
-          <button className="btn-view-blog" onClick={() => router.push('/blog')}>
+          <button className="btn-view-blog" onClick={() => router.push('/insights')}>
             View Public Blog
           </button>
         </div>

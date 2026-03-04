@@ -1,10 +1,10 @@
 import BlogList from '@/components/blog/BlogList'
 
 export const metadata = {
-  title: 'Blog - Honeyfoot Digital Co.',
+  title: 'How to Web - Honeyfoot Digital Co.',
   description: 'Read our latest articles about web design, development, and digital solutions.',
   openGraph: {
-    title: 'Blog - Honeyfoot Digital Co.',
+    title: 'How to Web - Honeyfoot Digital Co.',
     description: 'Read our latest articles about web design, development, and digital solutions.',
     type: 'website',
   },

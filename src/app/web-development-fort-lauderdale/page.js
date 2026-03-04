@@ -14,7 +14,7 @@ export default function FreeConsultationPage() {
       {/* TOPBAR */}
       <header className={styles.topbar}>
         <div className={styles.topbarLogo}>
-          <Image src="/HDC-Logo.webp" alt="Honeyfoot Digital Co." width={120} height={44} />
+          <a href="https://honeyfootco.com/"><Image src="/HDC-Logo.webp" alt="Honeyfoot Digital Co." width={120} height={44} /></a>
         </div>
         <div className={styles.topbarRight}>
           <a href="tel:3057070889" className={styles.topbarPhone}>

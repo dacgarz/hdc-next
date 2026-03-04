@@ -50,10 +50,10 @@ export default function BlogPostContent({ post }) {
     },
     description: post.content.replace(/<[^>]+>/g, '').substring(0, 160),
     keywords: post.tags.join(', '),
-    url: `https://honeyfootco.com/blog/${post.slug}`,
+    url: `https://honeyfootco.com/insights/${post.slug}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://honeyfootco.com/blog/${post.slug}`,
+      '@id': `https://honeyfootco.com/insights/${post.slug}`,
     },
   }
 
@@ -94,7 +94,7 @@ export default function BlogPostContent({ post }) {
         )}
 
         <div className="post-footer container">
-          <button onClick={() => router.push('/blog')} className="back-button">
+          <button onClick={() => router.push('/insights')} className="back-button">
             ← Back to Blog
           </button>
         </div>

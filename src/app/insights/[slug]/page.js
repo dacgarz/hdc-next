@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import BlogPostContent from '@/components/blog/BlogPostContent'
+import BlogPostContent from '@/components/insights/insightsPostContent'
 
 async function getPost(slug) {
   try {
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
       title: post.title,
       description: plainText,
       images: post.featureImage ? [post.featureImage] : [],
-      url: `https://app.honeyfootco.com/blog/${post.slug}`,
+      url: `https://app.honeyfootco.com/insights/${post.slug}`,
       publishedTime: post.publishDateTime,
       modifiedTime: post.updatedAt || post.publishDateTime,
       authors: ['Honeyfoot Digital Co.'],

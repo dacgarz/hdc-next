@@ -18,7 +18,7 @@ function formatDate(dateString) {
 export default function PostCard({ post }) {
   return (
     <article className="post-card">
-      <Link href={`/blog/${post.slug}`} className="post-card-link">
+      <Link href={`/insights/${post.slug}`} className="post-card-link">
         {post.featureImage && (
           <div className="post-card-image">
             <img src={post.featureImage} alt={post.title} />

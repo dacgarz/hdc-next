@@ -30,14 +30,13 @@ export default function BlogList({ posts }) {
   return (
     <div className="app">
       <Header onOpenModal={openModal} />
-
       <section className="blog-hero">
         <div className="container">
-          <h1>Our Blog</h1>
-          <p>Insights, tips, and stories from the world of web development</p>
+          <div className="eyebrow"><span className="dot"></span>HONEYFOOT DIGITAL CO.</div>
+          <h1>How to <span style={{ color: '#2dd4bf' }}>Web</span></h1>
+          <p><span style={{ color: '#808080' }}>We break down the web</span> so you don't have to.</p>
         </div>
       </section>
-
       <section className="blog-content">
         <div className="container">
           {allTags.length > 0 && (

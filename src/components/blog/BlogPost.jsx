@@ -76,7 +76,7 @@ function BlogPost({ onOpenModal }) {
         <div className="post-not-found">
           <h1>Post Not Found</h1>
           <p>The post you're looking for doesn't exist or is not yet published.</p>
-          <button onClick={() => navigate('/blog')} className="back-button">
+          <button onClick={() => navigate('/insights')} className="back-button">
             Back to Blog
           </button>
         </div>
@@ -120,7 +120,7 @@ function BlogPost({ onOpenModal }) {
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={getPlainTextExcerpt(post.content)} />
         <meta property="og:image" content={post.featureImage} />
-        <meta property="og:url" content={`https://app.honeyfootco.com/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://app.honeyfootco.com/insights/${post.slug}`} />
         <meta property="article:published_time" content={post.publishDateTime} />
         <meta property="article:modified_time" content={post.updatedAt || post.publishDateTime} />
         <meta property="article:author" content="Honeyfoot Digital Co." />
@@ -173,7 +173,7 @@ function BlogPost({ onOpenModal }) {
             </div>
           )}
         <div className="post-footer container">
-          <button onClick={() => navigate('/blog')} className="back-button">
+          <button onClick={() => navigate('/insights')} className="back-button">
             ← Back to Blog
           </button>
         </div>

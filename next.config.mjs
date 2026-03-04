@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   async rewrites() {
     return [
       {
@@ -9,6 +8,20 @@ const nextConfig = {
       },
     ]
   },
-};
+  async redirects() {
+    return [
+      {
+        source: '/blog',
+        destination: '/insights',
+        permanent: true,
+      },
+      {
+        source: '/blog/:slug',
+        destination: '/insights/:slug',
+        permanent: true,
+      },
+    ]
+  },
+}
 
-export default nextConfig;
+export default nextConfig

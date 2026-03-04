@@ -14,7 +14,7 @@ export default function Footer() {
           <nav className="footer-nav">
             <Link href="/">Who We Are</Link>
             <Link href="/#services">What We Offer</Link>
-            <Link href="/blog">How To Web</Link>
+            <Link href="/insights">How To Web</Link>
           </nav>
 
           <div className="footer-contact">

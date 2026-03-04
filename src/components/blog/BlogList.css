@@ -6,8 +6,8 @@
 }
 
 .blog-hero h1 {
-  margin: 0 0 1rem 0;
-  font-size: 3rem;
+  margin: 0;
+  font-size: 5rem;
 }
 
 .blog-hero p {
@@ -21,6 +21,16 @@
   min-height: 50vh;
   background-color: #f0f6fa;
 }
+
+.eyebrow {
+  display: inline-flex; align-items: center; 
+  background: rgba(45,212,191,0.12);
+  border: 1px solid rgba(45,212,191,0.28); border-radius: 100px;
+  padding: 5px; font-size: 0.71rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: #2dd4bf; margin-bottom: 0px; margin-top: 40px;
+}
+.dot { width: 6px; height: 6px; background: #2dd4bf; border-radius: 50%; animation: blink 1.6s ease-in-out infinite; }
 
 .tag-filter {
   display: none; /*flex*/
@@ -64,7 +74,7 @@
   text-align: center;
   padding: 4rem 2rem;
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #1D3251;
 }
 
 @media (max-width: 768px) {
