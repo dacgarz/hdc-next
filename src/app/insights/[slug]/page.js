@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import BlogPostContent from '@/components/insights/insightsPostContent'
+import BlogPostContent from '@/components/blog/BlogPostContent'
 
 async function getPost(slug) {
   try {
