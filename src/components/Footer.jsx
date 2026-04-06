@@ -15,6 +15,7 @@ export default function Footer() {
             <Link href="/">Who We Are</Link>
             <Link href="/#services">What We Offer</Link>
             <Link href="/insights">How To Web</Link>
+            <Link href="/contact">Let&apos;s Connect</Link>
           </nav>
 
           <div className="footer-contact">

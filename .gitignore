@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Blog data — managed via GitHub API at runtime, never commit locally
+/public/posts/posts.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,11 +1,16 @@
-'use client'
 import Image from 'next/image'
 import styles from '../landing/landing.module.css'
 
-/*export const metadata = {
-  title: 'Free Web Design Consultation — Honeyfoot Digital Co.',
-  description: 'Boutique web development partner for high-performance websites. Design, development, SEO, and maintenance — all under one roof. Hollywood, FL.',
-}*/
+export const metadata = {
+  title: 'Web Development Fort Lauderdale, FL | Honeyfoot Digital Co.',
+  description: 'Expert web development in Fort Lauderdale, FL. Custom React & WordPress websites, SEO, and ongoing maintenance from a boutique South Florida agency. Free consultation.',
+  alternates: { canonical: 'https://honeyfootco.com/web-development-fort-lauderdale' },
+  openGraph: {
+    title: 'Web Development Fort Lauderdale, FL | Honeyfoot Digital Co.',
+    description: 'Custom websites, SEO, and digital strategy for Fort Lauderdale businesses. React, WordPress, e-commerce — all under one roof.',
+    url: 'https://honeyfootco.com/web-development-fort-lauderdale',
+  },
+}
 
 export default function FreeConsultationPage() {
   return (

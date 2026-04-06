@@ -44,6 +44,7 @@ export default function Header({ onOpenModal }) {
             <li><Link href="/" onClick={closeMobileMenu}>WHO WE ARE</Link></li>
             <li><Link href="/#services" onClick={closeMobileMenu}>WHAT WE OFFER</Link></li>
             <li><Link href="/insights" onClick={closeMobileMenu}>HOW TO WEB</Link></li>
+            <li><Link href="/contact" onClick={closeMobileMenu}>LET&apos;S CONNECT</Link></li>
           </ul>
           <button
             className="nav-cta"

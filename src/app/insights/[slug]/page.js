@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
       title: post.title,
       description: plainText,
       images: post.featureImage ? [post.featureImage] : [],
-      url: `https://app.honeyfootco.com/insights/${post.slug}`,
+      url: `https://honeyfootco.com/insights/${post.slug}`,
       publishedTime: post.publishDateTime,
       modifiedTime: post.updatedAt || post.publishDateTime,
       authors: ['Honeyfoot Digital Co.'],
