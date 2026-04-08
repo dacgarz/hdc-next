@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ContactModal from '@/components/ContactModal'
 import styles from './contact.module.css'
 
 export default function ContactPage() {
+  const router = useRouter()
   const [modalOpen, setModalOpen] = useState(false)
   const [formType, setFormType] = useState('')
 
@@ -15,7 +17,7 @@ export default function ContactPage() {
     phone: '', website: '', servicePackage: '', message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null)
+  const [submitError, setSubmitError] = useState(false)
   const [focusedField, setFocusedField] = useState(null)
 
   const handleChange = (e) => {
@@ -25,7 +27,7 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setSubmitStatus(null)
+    setSubmitError(false)
 
     try {
       const payload = {
@@ -47,10 +49,9 @@ export default function ContactPage() {
       const result = await res.json()
 
       if (result.success) {
-        setSubmitStatus('success')
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', website: '', servicePackage: '', message: '' })
+        router.push('/contact/thank-you')
       } else {
-        setSubmitStatus('error')
+        setSubmitError(true)
       }
     } catch {
       setSubmitStatus('error')
@@ -155,23 +156,13 @@ export default function ContactPage() {
 
           {/* RIGHT — FORM */}
           <div className={styles.formWrap}>
-            {submitStatus === 'success' ? (
-              <div className={styles.successState}>
-                <div className={styles.successIcon}>
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                <h3>Message Sent!</h3>
-                <p>Thanks for reaching out. We&apos;ll get back to you within one business day.</p>
-                <button className={styles.sendAnother} onClick={() => setSubmitStatus(null)}>Send Another Message</button>
-              </div>
-            ) : (
-              <>
-                <div className={styles.formHeader}>
+            <>
+              <div className={styles.formHeader}>
                   <h3>Send Us a Message</h3>
                   <p>Fill out the form below and we&apos;ll get back to you shortly.</p>
                 </div>
 
-                {submitStatus === 'error' && (
+                {submitError && (
                   <div className={styles.errorBanner}>
                     Something went wrong. Please try again or email us directly.
                   </div>
@@ -282,8 +273,7 @@ export default function ContactPage() {
                     No spam, ever. Your info stays with us and is only used to respond to your inquiry.
                   </p>
                 </form>
-              </>
-            )}
+            </>
           </div>
         </div>
       </section>

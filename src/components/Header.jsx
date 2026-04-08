@@ -46,7 +46,9 @@ export default function Header({ onOpenModal: _onOpenModal }) {
             <li><Link href="/insights" onClick={closeMobileMenu}>HOW TO WEB</Link></li>
             <li><Link href="/contact" onClick={closeMobileMenu}>LET&apos;S CONNECT</Link></li>
           </ul>
-          {/* Free Website Audit — hidden until API key is configured */}
+          <Link href="/free-website-audit" className="nav-cta" onClick={closeMobileMenu}>
+            Free Website Audit
+          </Link>
         </div>
       </div>
     </nav>

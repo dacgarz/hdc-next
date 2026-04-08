@@ -770,3 +770,147 @@
   .reportCtaBtns { flex-direction: column; width: 100%; }
   .btnPrimary, .btnGhost { width: 100%; justify-content: center; }
 }
+
+/* ============================================================
+   PRINT / SAVE AS PDF
+   ============================================================ */
+.printBar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(45,212,191,0.05);
+  border: 1px solid rgba(45,212,191,0.14);
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin-bottom: 24px;
+}
+
+.btnPrint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(45,212,191,0.12);
+  border: 1px solid rgba(45,212,191,0.3);
+  color: #2dd4bf;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btnPrint:hover {
+  background: rgba(45,212,191,0.22);
+  transform: translateY(-1px);
+}
+
+.btnPrint svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.printBar span {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(240,249,255,0.4);
+}
+
+@media print {
+  /* Force light background, dark text */
+  .page, body, html {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  /* Hide everything except the report */
+  .hero,
+  .formSection,
+  .featureSection,
+  .reportCta,
+  .printBar {
+    display: none !important;
+  }
+
+  /* Remove card shadows and dark surfaces */
+  .reportWrap {
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .block {
+    background: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    color: #111827 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .blockTitle {
+    color: #111827 !important;
+  }
+
+  /* Score rings — keep colors but fix background */
+  .ringLabel, .ringScore {
+    color: #111827 !important;
+  }
+
+  /* CheckRow values */
+  .checkLabel, .checkNote, .checkVal {
+    color: #374151 !important;
+  }
+
+  .checkPass { color: #15803d !important; }
+  .checkFail { color: #b45309 !important; }
+
+  /* Overall card */
+  .overallCard {
+    background: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+    color: #111827 !important;
+  }
+
+  .overallScore, .overallGrade {
+    color: #111827 !important;
+  }
+
+  /* Vitals */
+  .vitalCard {
+    background: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    color: #111827 !important;
+  }
+
+  .vitalLabel, .vitalVal {
+    color: #374151 !important;
+  }
+
+  /* Findings */
+  .findingItem {
+    background: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    color: #111827 !important;
+  }
+
+  .findingTitle, .findingDesc {
+    color: #374151 !important;
+  }
+
+  /* Hide nav and footer (global selectors) */
+  nav, footer, header {
+    display: none !important;
+  }
+
+  /* Page break hints */
+  .scoreGrid, .vitalsGrid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
