@@ -51,7 +51,7 @@ function CheckRow({ label, value, good, note }) {
 
 /* ── Full report card ── */
 function ReportCard({ report }) {
-  const { mobile, desktop, vitals, findings, grades, onPage, security, links, url } = report
+  const { mobile, desktop, vitals, findings, grades, onPage, security, url } = report
   const hostname = url.replace(/^https?:\/\//, '').replace(/\/$/, '')
 
   return (
@@ -61,7 +61,7 @@ function ReportCard({ report }) {
       <div className={s.reportHeader}>
         <div className={s.reportBadge}>Free Website Audit Report</div>
         <h2>Results for <span>{hostname}</span></h2>
-        <p>Scanned just now · Powered by Google Lighthouse + custom link &amp; security checks</p>
+        <p>Scanned just now · Powered by Google Lighthouse + custom security &amp; on-page checks</p>
       </div>
 
       {/* Overall */}
@@ -72,7 +72,7 @@ function ReportCard({ report }) {
           <div className={s.overallGrade} style={{ color: grades.overall.color }}>
             {grades.overall.label}
           </div>
-          <p>Weighted across performance, SEO, accessibility, security, and broken links.</p>
+          <p>Weighted across performance, SEO, accessibility, on-page, and security checks.</p>
         </div>
       </div>
 
@@ -165,33 +165,6 @@ function ReportCard({ report }) {
           <CheckRow label="Referrer-Policy" good={security?.security?.referrerPolicy}
             note={security?.security?.referrerPolicy ? 'Referrer-Policy header present' : 'Missing Referrer-Policy header'} />
         </div>
-      </div>
-
-      {/* Broken links */}
-      <div className={s.block}>
-        <div className={s.blockTitle}>
-          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          Broken Links
-          <span className={s.blockMeta}>{links?.total ?? 0} links checked from homepage</span>
-        </div>
-        {links?.brokenCount === 0 ? (
-          <div className={s.allGood}>
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            No broken links found — great job!
-          </div>
-        ) : (
-          <div className={s.brokenList}>
-            {links.broken.map((b) => (
-              <div key={b.url} className={s.brokenItem}>
-                <span className={s.brokenStatus}>{b.status}</span>
-                <span className={s.brokenUrl}>{b.url.replace(/^https?:\/\//, '').slice(0, 60)}{b.url.length > 60 ? '…' : ''}</span>
-              </div>
-            ))}
-          </div>
-        )}
-        {links?.timeouts > 0 && (
-          <p className={s.timeoutNote}>{links.timeouts} link{links.timeouts > 1 ? 's' : ''} timed out (may be slow or blocking automated checks).</p>
-        )}
       </div>
 
       {/* Desktop compare */}
@@ -324,7 +297,7 @@ export default function FreeAuditPage() {
                   ['SEO Health',        'Technical SEO + on-page checks: title, meta, H1, schema'],
                   ['Accessibility',     'WCAG compliance scored by Google Lighthouse'],
                   ['Security Headers', 'HTTPS, HSTS, CSP, X-Frame-Options and more'],
-                  ['Broken Links',     'Every link on your homepage checked for 4xx/5xx errors'],
+                  ['On-Page SEO',      'Title, meta description, H1, canonical, OG image, schema'],
                   ['Best Practices',   'Modern web standards, HTTPS usage, and image formats'],
                 ].map(([title, desc]) => (
                   <div key={title} className={s.feature}>
