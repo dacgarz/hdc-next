@@ -120,9 +120,9 @@ export default function HomePage() {
         <div className="container">
           <h2>Ready to Get Started?</h2>
           <p>Let&apos;s create something amazing together</p>
-          <button className="contact-button" onClick={() => openModal('Get In Touch')}>
+          <Link href="/contact" className="contact-button" style={{ textDecoration: 'none' }}>
             Get In Touch
-          </button>
+          </Link>
         </div>
       </section>
 

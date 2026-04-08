@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import './Header.css'
 
-export default function Header({ onOpenModal }) {
+export default function Header({ onOpenModal: _onOpenModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -46,15 +46,7 @@ export default function Header({ onOpenModal }) {
             <li><Link href="/insights" onClick={closeMobileMenu}>HOW TO WEB</Link></li>
             <li><Link href="/contact" onClick={closeMobileMenu}>LET&apos;S CONNECT</Link></li>
           </ul>
-          <button
-            className="nav-cta"
-            onClick={() => {
-              onOpenModal('Get An Assessment')
-              closeMobileMenu()
-            }}
-          >
-            Get An Assessment
-          </button>
+          {/* Free Website Audit — hidden until API key is configured */}
         </div>
       </div>
     </nav>

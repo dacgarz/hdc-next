@@ -245,13 +245,11 @@ export default function ContactPage() {
                       required
                     >
                       <option value="">Select a service...</option>
-                      <option value="New Website Design">New Website Design</option>
-                      <option value="Website Redesign">Website Redesign / Refresh</option>
-                      <option value="E-Commerce Store">E-Commerce Store</option>
-                      <option value="SEO & Content">SEO &amp; Content Strategy</option>
-                      <option value="Hosting & Maintenance">Hosting &amp; Maintenance</option>
-                      <option value="Custom Web App">Custom Web App / React</option>
-                      <option value="Consultation Only">Consultation Only</option>
+                      <option value="Web Design & Development">Web Design &amp; Development</option>
+                      <option value="SEO & Content Strategy">SEO &amp; Content Strategy</option>
+                      <option value="Website Maintenance">Website Maintenance</option>
+                      <option value="E-Commerce">E-Commerce</option>
+                      <option value="Strategic Consultation">Strategic Consultation</option>
                       <option value="Not Sure">Not Sure Yet</option>
                     </select>
                     <div className={styles.selectArrow}>

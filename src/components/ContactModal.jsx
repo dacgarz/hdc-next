@@ -115,11 +115,11 @@ export default function ContactModal({ isOpen, onClose, formType }) {
               <label htmlFor="servicePackage">Service Package *</label>
               <select id="servicePackage" name="servicePackage" value={formData.servicePackage} onChange={handleChange} required>
                 <option value="">Select a service...</option>
-                <option value="Web Design">Web Design</option>
-                <option value="Web Development">Web Development</option>
-                <option value="Hosting & Maintenance">Hosting & Maintenance</option>
-                <option value="Full Package">Full Package</option>
-                <option value="Custom Solution">Custom Solution</option>
+                <option value="Web Design & Development">Web Design &amp; Development</option>
+                <option value="SEO & Content Strategy">SEO &amp; Content Strategy</option>
+                <option value="Website Maintenance">Website Maintenance</option>
+                <option value="E-Commerce">E-Commerce</option>
+                <option value="Strategic Consultation">Strategic Consultation</option>
               </select>
             </div>
           )}
