@@ -54,7 +54,7 @@ export default function ContactPage() {
         setSubmitError(true)
       }
     } catch {
-      setSubmitStatus('error')
+      setSubmitError(true)
     } finally {
       setIsSubmitting(false)
     }
