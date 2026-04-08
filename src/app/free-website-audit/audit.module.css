@@ -903,8 +903,8 @@
     color: #374151 !important;
   }
 
-  /* Hide nav and footer (global selectors) */
-  nav, footer, header {
+  /* Hide nav and footer */
+  :global(nav), :global(footer), :global(header) {
     display: none !important;
   }
 
