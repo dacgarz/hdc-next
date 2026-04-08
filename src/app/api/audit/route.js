@@ -157,13 +157,6 @@ export async function POST(request) {
       analyzeSite(normalizedUrl),
     ])
 
-    // Desktop with 4s cap — skip if slow
-    const desktopData = await Promise.race([
-      fetch(`${PAGESPEED_API}?url=${encodeURIComponent(normalizedUrl)}&strategy=desktop&category=performance&category=seo${apiKey}`)
-        .then(r => r.ok ? r.json() : null).catch(() => null),
-      new Promise(resolve => setTimeout(() => resolve(null), 4000)),
-    ])
-
     if (!mobileRes.ok) {
       console.error('PageSpeed error:', mobileRes.status)
       return NextResponse.json({ error: 'Could not analyze this URL. Please verify it is publicly accessible.' }, { status: 422 })
@@ -178,11 +171,7 @@ export async function POST(request) {
       bestPractices: Math.round((mobileData.lighthouseResult?.categories?.['best-practices']?.score ?? 0) * 100),
     }
 
-    const desktop = {
-      performance:   Math.round((desktopData?.lighthouseResult?.categories?.performance?.score ?? 0) * 100),
-      seo:           Math.round((desktopData?.lighthouseResult?.categories?.seo?.score         ?? 0) * 100),
-      accessibility: Math.round((desktopData?.lighthouseResult?.categories?.accessibility?.score ?? 0) * 100),
-    }
+    const desktop = { performance: 0, seo: 0, accessibility: 0 }
 
     const audits = mobileData.lighthouseResult?.audits ?? {}
     const vitals = {

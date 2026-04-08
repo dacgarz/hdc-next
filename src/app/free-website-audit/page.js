@@ -51,7 +51,7 @@ function CheckRow({ label, value, good, note }) {
 
 /* ── Full report card ── */
 function ReportCard({ report }) {
-  const { mobile, desktop, vitals, findings, grades, onPage, security, url } = report
+  const { mobile, vitals, findings, grades, onPage, security, url } = report
   const hostname = url.replace(/^https?:\/\//, '').replace(/\/$/, '')
 
   return (
@@ -167,22 +167,6 @@ function ReportCard({ report }) {
         </div>
       </div>
 
-      {/* Desktop compare */}
-      <div className={s.desktopRow}>
-        <div className={s.desktopLabel}>
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          Desktop Scores
-        </div>
-        <div className={s.desktopScores}>
-          {[['Performance', desktop.performance], ['SEO', desktop.seo], ['Accessibility', desktop.accessibility]].map(([l, v]) => (
-            <div key={l} className={s.desktopScore}>
-              <span style={{ color: grades[l.toLowerCase()]?.color ?? '#2dd4bf' }}>{v}</span>
-              <div>{l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* PageSpeed findings */}
       {findings.length > 0 && (
         <div className={s.block}>
@@ -289,7 +273,7 @@ export default function FreeAuditPage() {
               <h1>Get Your Free<br /><em>Website Audit</em></h1>
               <p>
                 Enter your URL and we&apos;ll instantly scan your site across 6 categories —
-                speed, SEO, accessibility, security, broken links, and more.
+                speed, SEO, accessibility, security, and more.
               </p>
               <div className={s.featureRow}>
                 {[
