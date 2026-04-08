@@ -248,18 +248,17 @@ export async function POST(request) {
     const normalizedUrl = url.startsWith('http') ? url : `https://${url}`
 
     // Run PageSpeed (mobile + desktop) and site analysis all in parallel
+    const apiKey = process.env.PAGESPEED_API_KEY ? `&key=${process.env.PAGESPEED_API_KEY}` : ''
     const [mobileRes, desktopRes, siteDetails] = await Promise.all([
-      fetch(`${PAGESPEED_API}?url=${encodeURIComponent(normalizedUrl)}&strategy=mobile&category=performance&category=seo&category=accessibility&category=best-practices`),
-      fetch(`${PAGESPEED_API}?url=${encodeURIComponent(normalizedUrl)}&strategy=desktop&category=performance&category=seo&category=accessibility&category=best-practices`),
+      fetch(`${PAGESPEED_API}?url=${encodeURIComponent(normalizedUrl)}&strategy=mobile&category=performance&category=seo&category=accessibility&category=best-practices${apiKey}`),
+      fetch(`${PAGESPEED_API}?url=${encodeURIComponent(normalizedUrl)}&strategy=desktop&category=performance&category=seo&category=accessibility&category=best-practices${apiKey}`),
       analyzeSite(normalizedUrl),
     ])
 
     if (!mobileRes.ok || !desktopRes.ok) {
       const errBody = await (mobileRes.ok ? desktopRes : mobileRes).text()
-      console.error('PageSpeed API error:', mobileRes.status, desktopRes.status, errBody.slice(0, 500))
-      return NextResponse.json({
-        error: `PageSpeed API returned ${mobileRes.ok ? desktopRes.status : mobileRes.status}. ${errBody.slice(0, 200)}`
-      }, { status: 422 })
+      console.error('PageSpeed API error:', mobileRes.status, desktopRes.status, errBody.slice(0, 300))
+      return NextResponse.json({ error: 'Could not analyze this URL. Please verify it is publicly accessible.' }, { status: 422 })
     }
 
     const [mobileData, desktopData] = await Promise.all([mobileRes.json(), desktopRes.json()])
