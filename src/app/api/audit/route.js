@@ -257,8 +257,11 @@ export async function POST(request) {
 
     if (!mobileRes.ok || !desktopRes.ok) {
       const errBody = await (mobileRes.ok ? desktopRes : mobileRes).text()
-      console.error('PageSpeed API error:', mobileRes.status, desktopRes.status, errBody.slice(0, 300))
-      return NextResponse.json({ error: 'Could not analyze this URL. Please verify it is publicly accessible.' }, { status: 422 })
+      const hasKey = !!process.env.PAGESPEED_API_KEY
+      console.error('PageSpeed error — mobile:', mobileRes.status, '| desktop:', desktopRes.status, '| key present:', hasKey, '| body:', errBody.slice(0, 400))
+      return NextResponse.json({
+        error: `Debug — mobile:${mobileRes.status} desktop:${desktopRes.status} key:${hasKey} — ${errBody.slice(0, 300)}`
+      }, { status: 422 })
     }
 
     const [mobileData, desktopData] = await Promise.all([mobileRes.json(), desktopRes.json()])
