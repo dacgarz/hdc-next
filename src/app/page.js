@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -14,19 +14,14 @@ export default function HomePage() {
   const openModal = (t) => { setFormType(t); setModalOpen(true) }
   const closeModal = () => { setModalOpen(false); setFormType('') }
 
-  const heroRef = useRef(null)
-  const [heroVisible, setHeroVisible] = useState(true)
+  const [heroVisible, setHeroVisible] = useState(false)
 
   // Hide header logo while hero is on screen
   useEffect(() => {
-    const el = heroRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => setHeroVisible(entry.isIntersecting),
-      { threshold: 0 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
+    const check = () => setHeroVisible(window.scrollY < 80)
+    check()
+    window.addEventListener('scroll', check, { passive: true })
+    return () => window.removeEventListener('scroll', check)
   }, [])
 
   // Scroll reveal
@@ -55,7 +50,7 @@ export default function HomePage() {
       <ContactModal isOpen={modalOpen} onClose={closeModal} formType={formType} />
 
       {/* ── HERO ── */}
-      <section ref={heroRef} className={s.hero}>
+      <section className={s.hero}>
         <div className={s.heroInner}>
           <div className={s.heroLeft}>
             <div className={s.eyebrow}>
