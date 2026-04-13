@@ -102,7 +102,7 @@ export default function HomePage() {
       </div>
 
       {/* ── SERVICES ── */}
-      <section className={s.services}>
+      <section className={s.services} id="services">
         <div className={s.servicesInner}>
           <div className={`${s.servicesHdr} ${s.reveal}`} data-reveal>
             <span className={s.tag}>What We Offer</span>
@@ -135,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY US ── */}
-      <section className={s.why}>
+      <section className={s.why} id="why">
         <div className={s.whyInner}>
           <div className={`${s.whyQuoteBlock} ${s.reveal}`} data-reveal>
             <div className={s.quoteMark}>&ldquo;</div>
