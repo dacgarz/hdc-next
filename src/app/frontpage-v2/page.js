@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -13,6 +13,21 @@ export default function FrontpageV2() {
   const [formType, setFormType] = useState('')
   const openModal = (t) => { setFormType(t); setModalOpen(true) }
   const closeModal = () => { setModalOpen(false); setFormType('') }
+
+  const heroRef = useRef(null)
+  const [heroVisible, setHeroVisible] = useState(true)
+
+  // Hide header logo while hero is on screen
+  useEffect(() => {
+    const el = heroRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroVisible(entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   // Scroll reveal
   useEffect(() => {
@@ -36,11 +51,11 @@ export default function FrontpageV2() {
 
   return (
     <div className={s.page}>
-      <Header onOpenModal={openModal} />
+      <Header onOpenModal={openModal} hideHeaderLogo={heroVisible} />
       <ContactModal isOpen={modalOpen} onClose={closeModal} formType={formType} />
 
       {/* ── HERO ── */}
-      <section className={s.hero}>
+      <section ref={heroRef} className={s.hero}>
         <div className={s.heroInner}>
         <div className={s.heroLeft}>
           <div className={s.eyebrow}>
@@ -78,7 +93,7 @@ export default function FrontpageV2() {
 
       {/* ── PROOF ── */}
       <div className={s.proof}>
-        {[['100%','Custom Builds'],['5★','Client Satisfaction'],['React','Blazing Fast Stack'],['1 Call','To Get Started']].map(([n, l], i) => (
+        {[['100%','Custom Builds'],['5★','Client Satisfaction'],['Fast Load','Google Ready'],['1 Call','To Get Started']].map(([n, l], i) => (
           <div key={l} className={`${s.proofItem} ${s.reveal}`} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
             <div className={s.proofNum}>{n}</div>
             <div className={s.proofLbl}>{l}</div>

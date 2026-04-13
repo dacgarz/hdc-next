@@ -1,7 +1,7 @@
 /* Navigation */
 .navbar {
   background-color: transparent; /* Start transparent */
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
   position: fixed; /* Changed from sticky to fixed */
   top: 0;
   left: 0;
@@ -31,6 +31,15 @@
   display: flex;
   align-items: center;
   z-index: 101;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: auto;
+}
+.logo.logoHidden {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
 }
 
 .logo-img {

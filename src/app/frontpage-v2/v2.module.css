@@ -117,9 +117,7 @@
   color: #2dd4bf;
 }
 
-@keyframes lineUp {
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes lineUp { to { opacity: 1; transform: translateY(0); } }
 
 /* ── Sub text ── */
 .heroSub {
@@ -193,6 +191,19 @@
   width: 100%;
   max-width: 460px;
   height: auto;
+  cursor: pointer;
+  /* idle float starts after all entry animations finish (~2s) */
+  animation: logoFloat 3.4s ease-in-out 2s infinite;
+  transition: filter 0.4s ease;
+}
+.logoSvg:hover {
+  filter: drop-shadow(0 6px 18px rgba(0, 209, 255, 0.3));
+}
+
+/* Whole-logo gentle bob */
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
 }
 
 /* Paw pop — scale from center with slight overshoot */
@@ -215,6 +226,12 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
+/* Slow heartbeat-style breath for the heel pad */
+@keyframes pawBreath {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.09); }
+}
+
 /* Shared: use fill-box so transform-origin is relative to each element */
 .pawHeel,
 .pawToe,
@@ -225,7 +242,10 @@
 }
 
 .pawHeel {
-  animation: pawPop 0.55s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;
+  /* pop in, then breathe once everything has settled */
+  animation:
+    pawPop   0.55s cubic-bezier(0.22,1,0.36,1) 0.1s  forwards,
+    pawBreath 3.2s  ease-in-out                 2.2s  infinite;
 }
 
 .pawToe1 { animation: pawPop 0.45s cubic-bezier(0.22,1,0.36,1) 0.55s forwards; }
