@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import './Header.css'
 
-export default function Header({ onOpenModal: _onOpenModal }) {
+export default function Header({ onOpenModal: _onOpenModal, hideHeaderLogo = false }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -23,7 +23,7 @@ export default function Header({ onOpenModal: _onOpenModal }) {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <div className="logo">
+        <div className={`logo${hideHeaderLogo ? ' logoHidden' : ''}`}>
           <Link href="/">
             <Image src="/HDC-Logo.webp" alt="Honeyfoot Digital Co." className="logo-img" width={240} height={100} quality={100} />
           </Link>
@@ -41,7 +41,7 @@ export default function Header({ onOpenModal: _onOpenModal }) {
 
         <div className={`nav-menu-wrapper ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="nav-menu">
-            <li><Link href="/" onClick={closeMobileMenu}>WHO WE ARE</Link></li>
+            <li><Link href="/#why" onClick={closeMobileMenu}>WHO WE ARE</Link></li>
             <li><Link href="/#services" onClick={closeMobileMenu}>WHAT WE OFFER</Link></li>
             <li><Link href="/insights" onClick={closeMobileMenu}>HOW TO WEB</Link></li>
             <li><Link href="/contact" onClick={closeMobileMenu}>LET&apos;S CONNECT</Link></li>

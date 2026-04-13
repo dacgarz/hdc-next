@@ -14,7 +14,7 @@ export default function HomePage() {
   const openModal = (t) => { setFormType(t); setModalOpen(true) }
   const closeModal = () => { setModalOpen(false); setFormType('') }
 
-  const [heroVisible, setHeroVisible] = useState(false)
+  const [heroVisible, setHeroVisible] = useState(true)
 
   // Hide header logo while hero is on screen
   useEffect(() => {
